@@ -34,10 +34,18 @@ def on_message_from_pong(client, userdata, message):
     message = message.payload.decode()
     print("Message: "+message)
     
-    value = mcp.read_adc(0)
-    message = value
+    if(message.lower() == "light"):
+        value = mcp.read_adc(0)
+        message = value
+        client.publish("iclee/pong", f"{message}")
+    else if(message.lower() == "sound"):
+        value = mcp.read_adc(1)
+        message = value
+        client.publish("iclee/pong", f"{message}")
+    else:
+        message = "none"
+        client.publish("iclee/pong", f"{message}")
     
-    client.publish("iclee/pong", f"{message}")
 
     print("Publishing number"+ str(message))
 

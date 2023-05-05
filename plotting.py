@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-userinput = input('Choose a number 1-3:\n 1 for: \n 2 for: \n 3 for: \n')
+userinput = input('Choose a number 1-3:\n1 for: \n2 for: \n3 for: \n')
 
 if userinput == "1":
 

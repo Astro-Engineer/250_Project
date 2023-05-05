@@ -48,10 +48,15 @@ def on_message_from_pong(client, userdata, message):
         print("pubbed1    " + str(len(values)))
               
     elif(message.lower() == "sound"):
-        value = mcp.read_adc(1)
-        message = value
-        client.publish("iclee/pong", f"{message}")
-        print("pubbed2")
+        t_end = time.time() + 4
+        while time.time() < t_end:
+            values.append(mcp.read_adc(0))
+            time.sleep(0.05)
+        message = json.dumps(values)
+            
+        client.publish("iclee/pong", message)
+        print("pubbed2    " + str(len(values)))
+
     else:
         GPIO.output(11, GPIO.HIGH)
         time.sleep(0.2)

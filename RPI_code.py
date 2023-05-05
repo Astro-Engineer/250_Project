@@ -26,7 +26,7 @@ def on_message(client, userdata, msg):
     print("Default callback - topic: " + msg.topic + "   msg: " + str(msg.payload, "utf-8"))
 
 def on_message_from_pong(client, userdata, message):
-    value = mcp.read_adc(1)
+    value = mcp.read_adc(0)
     message = value
     
     print("Custom callback  - Int Message: "+str(message))
@@ -35,7 +35,6 @@ def on_message_from_pong(client, userdata, message):
 
     print("Publishing number"+ str(message))
 
-    time.sleep(4)  
 
 if __name__ == '__main__':
 

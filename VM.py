@@ -31,7 +31,7 @@ def on_message_from_data(client, userdata, message):
     data = json.loads(message.payload)
     #for element in data:
         #print(element)
-    xaxis = np.array([0, 4])
+    xaxis = np.linspace(0, 4, 80)
 
     plt.plot(xaxis, data)
     plt.xlabel("X-Label")

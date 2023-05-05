@@ -51,7 +51,6 @@ def on_message_from_input(client, userdata, message):
         t_end = time.time() + 4
         while time.time() < t_end:
             values.append(mcp.read_adc(1))
-            time.sleep(0.05)
         message = json.dumps(values)
             
         client.publish("iclee/sound", message)

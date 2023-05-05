@@ -2,6 +2,8 @@ import paho.mqtt.client as mqtt
 
 import time
 
+import matplotlib.pyplot as plt
+import numpy as np
 import json
 
 from datetime import datetime
@@ -27,8 +29,16 @@ def on_message(client, userdata, msg):
 def on_message_from_data(client, userdata, message):
 
     data = json.loads(message.payload)
-    for element in data:
-        print(element)
+    #for element in data:
+        #print(element)
+    xaxis = np.array([0, 4])
+
+    plt.plot(xaxis, data)
+    plt.xlabel("X-Label")
+    plt.ylabel("Y-Label")
+    plt.title("Title")
+    plt.savefig("Sample Two")
+    print("TWO COMPLETE")
         
 def on_message_from_wrong(client, userdata, message):
     print("Please enter either 'Light', 'Sound', or 'Distance'!")

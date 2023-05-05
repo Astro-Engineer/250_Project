@@ -1,2 +1,5 @@
 # 250_Project
-GoTeam
+
+Team Members:
+Isaiah Lee
+Michael Ruiz

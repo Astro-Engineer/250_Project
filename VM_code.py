@@ -22,9 +22,9 @@ def on_message(client, userdata, msg):
 
 def on_message_from_pong(client, userdata, message):
 
-    message = int(message.payload.decode())
-
-    print("Data Received: "+str(message))
+    data = json.loads(message.payload)
+    for element in data:
+        print(element)
 
 if __name__ == '__main__':
 

@@ -20,9 +20,9 @@ def on_message(client, userdata, msg):
 
 def on_message_from_pong(client, userdata, message):
 
-    message = int(message.payload.decode()) + 1
+    message = int(message.payload.decode())
 
-    print("Custom callback  - Int Message: "+str(message))
+    print("Data Received: "+str(message))
 
     client.publish("iclee/ping", f"{message}")
 

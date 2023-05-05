@@ -9,6 +9,7 @@ if userinput == "1":
     ypoints = np.array([0, 250])
 
     plt.plot(xpoints, ypoints)
+    plt.ylim([0, 700])
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
@@ -20,6 +21,7 @@ elif userinput == "2":
     ypoints = np.array([0, 500])
 
     plt.plot(xpoints, ypoints)
+    plt.ylim([0, 700])
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
@@ -31,6 +33,7 @@ elif userinput == "3":
     ypoints = np.array([0, 100])
 
     plt.plot(xpoints, ypoints)
+    plt.ylim([0, 700])
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")

@@ -63,8 +63,8 @@ def on_message_from_sound(client, userdata, message):
     
 
     plt.plot(t, data)
-    plt.set_ylabel('Amplitude')
-    plt.set_xlabel('Time (s)')
+    plt.ylabel('Amplitude')
+    plt.xlabel('Time (s)')
 
     plt.savefig("wacky")
     

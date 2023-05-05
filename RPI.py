@@ -44,7 +44,7 @@ def on_message_from_input(client, userdata, message):
             time.sleep(0.05)
         message = json.dumps(values)
             
-        client.publish("iclee/data", message)
+        client.publish("iclee/light", message)
         print("pubbed1    " + str(len(values)))
               
     elif(message.lower() == "sound"):
@@ -54,7 +54,7 @@ def on_message_from_input(client, userdata, message):
             time.sleep(0.05)
         message = json.dumps(values)
             
-        client.publish("iclee/data", message)
+        client.publish("iclee/sound", message)
         print("pubbed2    " + str(len(values)))
         
     else:

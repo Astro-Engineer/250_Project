@@ -45,7 +45,7 @@ def on_message_from_pong(client, userdata, message):
         client.publish("iclee/pong", f"{message}")
         print("pubbed2")
     else:
-        message = "none"
+        message = 1000
         client.publish("iclee/pong", f"{message}")
         print("pubbed3")
     

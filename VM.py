@@ -18,7 +18,7 @@ def on_connect(client, userdata, flags, rc):
     
     client.subscribe("iclee/wrong")
     
-    client.message_callback_add("iclee/data", on_message_from_wrong)
+    client.message_callback_add("iclee/wrong", on_message_from_wrong)
 
 def on_message(client, userdata, msg):
 

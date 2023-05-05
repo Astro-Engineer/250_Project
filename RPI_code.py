@@ -45,9 +45,10 @@ def on_message_from_pong(client, userdata, message):
         client.publish("iclee/pong", f"{message}")
         print("pubbed2")
     else:
-        message = 1000
-        client.publish("iclee/pong", f"{message}")
-        print("pubbed3")
+        GPIO.output(11, GPIO.HIGH)
+        time.sleep(0.2)
+        GPIO.output(11, GPIO.LOW)
+        time.sleep(0.2)
     
 
     

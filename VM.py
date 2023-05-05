@@ -48,4 +48,4 @@ if __name__ == '__main__':
         client.publish("iclee/ping", message)
 
         print("Publishing string: " + message)
-        time.sleep(3)
+        time.sleep(5)

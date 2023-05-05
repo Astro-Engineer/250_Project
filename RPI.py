@@ -45,7 +45,7 @@ def on_message_from_pong(client, userdata, message):
         message = json.dumps(values)
             
         client.publish("iclee/pong", message)
-        print("pubbed1")
+        print("pubbed1" + str(len(values))
     elif(message.lower() == "sound"):
         value = mcp.read_adc(1)
         message = value

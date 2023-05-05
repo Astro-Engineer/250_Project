@@ -49,13 +49,37 @@ def on_message_from_sound(client, userdata, message):
     data = json.loads(message.payload)
     for element in data:
         print(element)
-    xaxis = np.linspace(0, 4, 80)
+        
+    t = np.linspace(0, 4, len(data))
+    signal = data
 
-    plt.plot(xaxis, data)
-    plt.xlabel("X-Label")
-    plt.ylabel("Y-Label")
-    plt.title("Title")
-    plt.savefig("Sample Two")
+# Compute the FFT of the signal
+    fft_vals = np.fft.fft(signal)
+
+# Compute the frequencies associated with the FFT values
+    freqs = np.fft.fftfreq(len(signal), t[1]-t[0])
+
+# Compute the power spectral density
+    psd = np.abs(fft_vals)**2
+    
+    fig, (ax1, ax2) = plt.subplots(nrows=2, sharex=True, figsize=(8,6))
+
+    ax1.plot(t, signal)
+    ax1.set_ylabel('Amplitude')
+    ax1.set_xlabel('Time (s)')
+
+    ax2.plot(freqs, psd)
+    ax2.set_xlim(0, 100)
+    ax2.set_xlabel('Frequency (Hz)')
+    ax2.set_ylabel('Power')
+    
+    #xaxis = np.linspace(0, 4, 80)
+
+    #plt.plot(xaxis, data)
+    #plt.xlabel("X-Label")
+    #plt.ylabel("Y-Label")
+    #plt.title("Title")
+    #plt.savefig("Sample Two")
     print("TWO COMPLETE")
         
 def on_message_from_wrong(client, userdata, message):

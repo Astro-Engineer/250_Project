@@ -56,16 +56,6 @@ def on_message_from_input(client, userdata, message):
             
         client.publish("iclee/data", message)
         print("pubbed2    " + str(len(values)))
-    
-    elif(message.lower() == "distance"):
-        t_end = time.time() + 4
-        while time.time() < t_end:
-            values.append(mcp.read_adc(2))
-            time.sleep(0.05)
-        message = json.dumps(values)
-            
-        client.publish("iclee/data", message)
-        print("pubbed3    " + str(len(values)))
         
     else:
         GPIO.output(11, GPIO.HIGH)
@@ -74,7 +64,7 @@ def on_message_from_input(client, userdata, message):
         time.sleep(0.5)
         message = ""
         client.publish("iclee/wrong", message)
-        print("pubbed4")
+        print("pubbed3")
     
 
     

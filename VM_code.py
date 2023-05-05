@@ -37,14 +37,12 @@ if __name__ == '__main__':
     
 
     client.loop_start()
-    
-    message = input("Enter what you would like measured? ")
-    
-
-    client.publish("iclee/ping", message)
-
-    print("Publishing string: " + message)
 
     
     while True:
-    	pass
+    	message = input("Enter what you would like measured? ")
+    
+
+        client.publish("iclee/ping", message)
+
+        print("Publishing string: " + message)

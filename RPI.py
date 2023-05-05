@@ -35,13 +35,13 @@ def on_message_from_pong(client, userdata, message):
     
     message = message.payload.decode()
     print("Message: "+message)
-    
+    values = []
     if(message.lower() == "light"):
-        values = []
+      
         t_end = time.time() + 5
         while time.time() < t_end:
-            value.append(mcp.read_adc(0))
-        message = json.dumps(numbers)
+            values.append(mcp.read_adc(0))
+        message = json.dumps(values)
             
         client.publish("iclee/pong", message)
         print("pubbed1")

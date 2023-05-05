@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     client.loop_start()
 
-    
+    time.sleep(1.5)
     while True:
         message = input("Enter what you would like measured? ")
         

@@ -59,9 +59,9 @@ def on_message_from_input(client, userdata, message):
 
     else:
         GPIO.output(11, GPIO.HIGH)
-        time.sleep(0.2)
+        time.sleep(3)
         GPIO.output(11, GPIO.LOW)
-        time.sleep(0.2)
+        time.sleep(0.5)
         message = ""
         client.publish("iclee/wrong", message)
         print("pubbed3")

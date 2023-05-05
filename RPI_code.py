@@ -30,10 +30,12 @@ def on_message(client, userdata, msg):
     print("Default callback - topic: " + msg.topic + "   msg: " + str(msg.payload, "utf-8"))
 
 def on_message_from_pong(client, userdata, message):
+    
+    message = message.payload.decode()
+    print("Message: "+message)
+    
     value = mcp.read_adc(0)
     message = value
-    
-    print("Custom callback  - Int Message: "+str(message))
     
     client.publish("iclee/pong", f"{message}")
 

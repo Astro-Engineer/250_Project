@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     client.on_message = on_message
 
-    client.connect(host="192.168.139.5", port=1883, keepalive=60)
+    client.connect(host="192.168.27.5", port=1883, keepalive=60)
 
     
 

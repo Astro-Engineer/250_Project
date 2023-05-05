@@ -30,7 +30,7 @@ def on_message_from_data(client, userdata, message):
     for element in data:
         print(element)
         
-def on_message_from_data(client, userdata, message):
+def on_message_from_wrong(client, userdata, message):
     print("Please enter either 'Light', 'Sound', or 'Distance'!")
 
 if __name__ == '__main__':

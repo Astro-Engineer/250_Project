@@ -37,10 +37,13 @@ def on_message_from_pong(client, userdata, message):
     print("Message: "+message)
     
     if(message.lower() == "light"):
-        
-        value = mcp.read_adc(0)
-        message = value
-        client.publish("iclee/pong", f"{message}")
+        values = []
+        t_end = time.time() + 5
+        while time.time() < t_end:
+            value.append(mcp.read_adc(0))
+        message = json.dumps(numbers)
+            
+        client.publish("iclee/pong", message)
         print("pubbed1")
     elif(message.lower() == "sound"):
         value = mcp.read_adc(1)

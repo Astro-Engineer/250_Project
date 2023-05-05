@@ -51,7 +51,6 @@ if __name__ == '__main__':
 
     print("Publishing number")
 
-    time.sleep(4)
     
     while True:
     	pass

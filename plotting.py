@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-userinput = input("Choose a number 1-3: ")
+userinput = input('Choose a number 1-3:\n 1 for: \n 2 for: \n 3 for: \n')
 
 if userinput == "1":
 
@@ -34,7 +34,7 @@ elif userinput == "3":
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
-    plt.savefig("Sample")
+    plt.savefig("Sample 3")
     print("THREE WEE-HEE")
     
 else:

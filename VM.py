@@ -62,17 +62,12 @@ def on_message_from_sound(client, userdata, message):
 # Compute the power spectral density
     psd = np.abs(fft_vals)**2
     
-    fig, (ax1, ax2) = plt.subplots(nrows=2, sharex=True, figsize=(8,6))
 
-    ax1.plot(t, signal)
-    ax1.set_ylabel('Amplitude')
-    ax1.set_xlabel('Time (s)')
+    plt.plot(t, data)
+    plt.set_ylabel('Amplitude')
+    plt.set_xlabel('Time (s)')
 
-    ax2.plot(freqs, psd)
-    ax2.set_xlim(0, 100)
-    ax2.set_xlabel('Frequency (Hz)')
-    ax2.set_ylabel('Power')
-    fig.savefig("wacky")
+    plt.savefig("wacky")
     
     #xaxis = np.linspace(0, 4, 80)
 

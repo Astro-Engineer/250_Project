@@ -31,7 +31,6 @@ def on_message_from_pong(client, userdata, message):
     time.sleep(4)    
 
 if __name__ == '__main__':
-    message = str(1)
 
     client = mqtt.Client()
 
@@ -44,12 +43,13 @@ if __name__ == '__main__':
     
 
     client.loop_start()
+    
+    message = input("Enter what you would like measured? ")
+    
 
-    time.sleep(1)
+    client.publish("iclee/ping", message)
 
-    client.publish("iclee/ping", f"{message}")
-
-    print("Publishing number")
+    print("Publishing string: " + message)
 
     
     while True:

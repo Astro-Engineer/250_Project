@@ -51,13 +51,12 @@ def on_message_from_sound(client, userdata, message):
         print(element)
         
     t = np.linspace(0, 4, len(data))
-    signal = data
 
 # Compute the FFT of the signal
-    fft_vals = np.fft.fft(signal)
+    fft_vals = np.fft.fft(data)
 
 # Compute the frequencies associated with the FFT values
-    freqs = np.fft.fftfreq(len(signal), t[1]-t[0])
+    freqs = np.fft.fftfreq(len(data), t[1]-t[0])
 
 # Compute the power spectral density
     psd = np.abs(fft_vals)**2
@@ -69,6 +68,11 @@ def on_message_from_sound(client, userdata, message):
 
     plt.savefig("wacky")
     
+    plt.plot(freqs, fft_vals)
+    plt.set_ylabel('Poggy (woggys)')
+    plt.set_xlabel('Freq (HZ)')
+    
+
     #xaxis = np.linspace(0, 4, 80)
 
     #plt.plot(xaxis, data)

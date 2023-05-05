@@ -69,6 +69,7 @@ def on_message_from_sound(client, userdata, message):
     plt.savefig("wacky")
     
     plt.plot(freqs, fft_vals)
+    plt.set_ylim([-300, 300])
     plt.ylabel('Poggy (woggys)')
     plt.xlabel('Freq (HZ)')
     plt.savefig("wacky2")

@@ -38,16 +38,19 @@ def on_message_from_pong(client, userdata, message):
         value = mcp.read_adc(0)
         message = value
         client.publish("iclee/pong", f"{message}")
+        print("pubbed1")
     elif(message.lower() == "sound"):
         value = mcp.read_adc(1)
         message = value
         client.publish("iclee/pong", f"{message}")
+        print("pubbed2")
     else:
         message = "none"
         client.publish("iclee/pong", f"{message}")
+        print("pubbed3")
     
 
-    print("Publishing number"+ str(message))
+    
 
 
 if __name__ == '__main__':

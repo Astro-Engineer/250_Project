@@ -14,9 +14,13 @@ def on_connect(client, userdata, flags, rc):
     
     print("Connected to server (i.e., broker) with result code "+str(rc))
 
-    client.subscribe("iclee/data")
+    client.subscribe("iclee/light")
 
-    client.message_callback_add("iclee/data", on_message_from_data)
+    client.message_callback_add("iclee/light", on_message_from_light)
+    
+    client.subscribe("iclee/sound")
+
+    client.message_callback_add("iclee/sound", on_message_from_sound)
     
     client.subscribe("iclee/wrong")
     
@@ -26,7 +30,21 @@ def on_message(client, userdata, msg):
 
     print("Default callback - topic: " + msg.topic + "   msg: " + str(msg.payload, "utf-8"))
 
-def on_message_from_data(client, userdata, message):
+def on_message_from_light(client, userdata, message):
+
+    data = json.loads(message.payload)
+    for element in data:
+        print(element)
+    xaxis = np.linspace(0, 4, 80)
+
+    plt.plot(xaxis, data)
+    plt.xlabel("X-Label")
+    plt.ylabel("Y-Label")
+    plt.title("Title")
+    plt.savefig("Sample Two")
+    print("TWO COMPLETE")
+    
+def on_message_from_sound(client, userdata, message):
 
     data = json.loads(message.payload)
     for element in data:

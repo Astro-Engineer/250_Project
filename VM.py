@@ -52,7 +52,7 @@ if __name__ == '__main__':
         message = input("Enter what you would like measured? ")
         
 
-        client.publish("iclee/ping", message)
+        client.publish("iclee/input", message)
 
         print("Publishing string: " + message)
         time.sleep(5)

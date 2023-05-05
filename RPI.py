@@ -50,7 +50,7 @@ def on_message_from_input(client, userdata, message):
     elif(message.lower() == "sound"):
         t_end = time.time() + 4
         while time.time() < t_end:
-            values.append(mcp.read_adc(0))
+            values.append(mcp.read_adc(1))
             time.sleep(0.05)
         message = json.dumps(values)
             

@@ -24,12 +24,6 @@ def on_message_from_pong(client, userdata, message):
 
     print("Data Received: "+str(message))
 
-    client.publish("iclee/ping", f"{message}")
-
-    print("Publishing number " + str(message))
-
-    time.sleep(4)    
-
 if __name__ == '__main__':
 
     client = mqtt.Client()

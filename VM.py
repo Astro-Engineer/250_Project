@@ -72,6 +72,8 @@ def on_message_from_sound(client, userdata, message):
     ax2.set_xlim(0, 100)
     ax2.set_xlabel('Frequency (Hz)')
     ax2.set_ylabel('Power')
+    ax1.savefig("wacky")
+    ax2.savefig("wacky5")
     
     #xaxis = np.linspace(0, 4, 80)
 

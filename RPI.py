@@ -2,6 +2,8 @@ import paho.mqtt.client as mqtt
 
 import time
 
+import json
+
 from datetime import datetime
 
 import socket
@@ -35,6 +37,7 @@ def on_message_from_pong(client, userdata, message):
     print("Message: "+message)
     
     if(message.lower() == "light"):
+        
         value = mcp.read_adc(0)
         message = value
         client.publish("iclee/pong", f"{message}")

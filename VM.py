@@ -64,7 +64,7 @@ def on_message_from_sound(client, userdata, message):
 
 # plot the data and regression line
     plt.scatter(xaxis, data)
-    plt.plot(xaxis, p(x))
+    plt.plot(xaxis, p(xaxis))
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")

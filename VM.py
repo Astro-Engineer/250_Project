@@ -63,9 +63,6 @@ def on_message_from_sound(client, userdata, message):
     plt.plot(xaxis, mymodel(xaxis))
 
         
-# plot the data and regression line
-
-    plt.plot(xaxis, [sum([coefficients[i] * math.pow(j, i) for i in range(degree+1)]) for j in xaxis])
     
 
 # plot the data and regression line

@@ -64,10 +64,6 @@ def on_message_from_input(client, userdata, message):
         #send to topic "wrong"
         client.publish("iclee/wrong", message)
     
-
-    
-
-
 if __name__ == '__main__':
     #setup client
     client = mqtt.Client()

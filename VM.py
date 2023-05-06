@@ -63,11 +63,11 @@ def on_message_from_sound(client, userdata, message):
     n = len(xaxis)
     for i in range(degree+1):
         for j in range(n):
-            coefficients[i] += data[j] * math.pow(x[j], i)
+            coefficients[i] += data[j] * math.pow(xaxis[j], i)
     for i in range(degree-1, -1, -1):
         for j in range(degree, i, -1):
-            coefficients[i] -= coefficients[j] * math.pow(x[0], j-i)
-        coefficients[i] /= math.pow(x[0], i)
+            coefficients[i] -= coefficients[j] * math.pow(xaxis[0], j-i)
+        coefficients[i] /= math.pow(xaxis[0], i)
         
 # plot the data and regression line
 

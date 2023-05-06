@@ -85,7 +85,7 @@ def on_message_from_sound(client, userdata, message):
     print("TWO COMPLETE")
         
 def on_message_from_wrong(client, userdata, message):
-    print("Please enter either 'Light', 'Sound', or 'Distance'!")
+    print("Please enter either 'Light', 'Sound'!")
 
 if __name__ == '__main__':
 

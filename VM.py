@@ -10,6 +10,8 @@ import json
 
 from datetime import datetime
 
+import math
+
 import socket
 
 def on_connect(client, userdata, flags, rc):
@@ -55,8 +57,14 @@ def on_message_from_sound(client, userdata, message):
 
 
     xaxis = np.linspace(0, 4, len(data))
+    
+    degree = 5
+    coefficients = np.polyfit(data, xaxis, degree)
+    p = np.poly1d(coefficients)
 
+# plot the data and regression line
     plt.scatter(xaxis, data)
+    plt.plot(xaxis, p(x))
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")

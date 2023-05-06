@@ -4,6 +4,8 @@ Team Members:
 Isaiah Lee
 Michael Ruiz
 
+Video Link: https://drive.google.com/file/d/1UVBXP_7mLey34AJWaSK0Gowb9Z13MoWr/view?usp=sharing
+
 Instructions:
 
 Run RPI.py (on RPi) BEFORE VM.py (on a VM/Local Machine)

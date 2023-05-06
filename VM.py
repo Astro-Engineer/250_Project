@@ -58,7 +58,7 @@ def on_message_from_sound(client, userdata, message):
 
     xaxis = np.linspace(0, 4, len(data))
     
-    mymodel = np.poly1d(np.polyfit(xaxis, data, 3))
+    mymodel = np.poly1d(np.polyfit(xaxis, data, 5))
 
     plt.plot(xaxis, mymodel(xaxis))
 

@@ -37,8 +37,6 @@ def on_message(client, userdata, msg):
 def on_message_from_light(client, userdata, message):
 
     data = json.loads(message.payload)
-    for element in data:
-        print(element)
 
 
     xaxis = np.linspace(0, 4, len(data))
@@ -83,7 +81,7 @@ def on_message_from_sound(client, userdata, message):
     print("SOUND COMPLETE")
         
 def on_message_from_wrong(client, userdata, message):
-    print("Please enter either 'Light', 'Sound'!")
+    print("Please enter either 'Light' or 'Sound'!")
 
 if __name__ == '__main__':
 
@@ -105,5 +103,4 @@ if __name__ == '__main__':
         
         client.publish("iclee/input", message)
 
-        print("Publishing string: " + message)
         time.sleep(5)

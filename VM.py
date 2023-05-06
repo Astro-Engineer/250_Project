@@ -53,11 +53,11 @@ def on_message_from_light(client, userdata, message):
 # plot the data and regression line
     plt.scatter(xaxis, data)
 
-    plt.xlabel("X-Label")
-    plt.ylabel("Y-Label")
-    plt.title("Title")
-    plt.savefig("Sample Two")
-    print("TWO COMPLETE")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+    plt.title("Sample Light Strength")
+    plt.savefig("light_graph")
+    print("LIGHT COMPLETE")
     
 def on_message_from_sound(client, userdata, message):
 
@@ -72,17 +72,15 @@ def on_message_from_sound(client, userdata, message):
 
     plt.plot(xaxis, mymodel(xaxis), color='red')
 
-        
-    
 
 # plot the data and regression line
     plt.scatter(xaxis, data)
 
-    plt.xlabel("X-Label")
-    plt.ylabel("Y-Label")
-    plt.title("Title")
-    plt.savefig("Sample Two")
-    print("TWO COMPLETE")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+    plt.title("Sample Sound Strength")
+    plt.savefig("sound_graph")
+    print("SOUND COMPLETE")
         
 def on_message_from_wrong(client, userdata, message):
     print("Please enter either 'Light', 'Sound'!")

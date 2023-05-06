@@ -39,13 +39,24 @@ def on_message_from_light(client, userdata, message):
     data = json.loads(message.payload)
     for element in data:
         print(element)
-    xaxis = np.linspace(0, 4, 80)
 
+
+    xaxis = np.linspace(0, 4, len(data))
+    
+    mymodel = np.poly1d(np.polyfit(xaxis, data, 20))
+
+    plt.plot(xaxis, mymodel(xaxis), color='red')
+
+        
+    
+
+# plot the data and regression line
     plt.scatter(xaxis, data)
 
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
+    plt.show()
     plt.savefig("Sample Two")
     print("TWO COMPLETE")
     

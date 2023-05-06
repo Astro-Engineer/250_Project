@@ -8,6 +8,9 @@ Instructions:
 
 Run RPI.py (on RPi) BEFORE VM.py (on a VM/Local Machine)
 
+*The other python scripts were only for testing*
+
+
 Libraries:
 
 Both: 

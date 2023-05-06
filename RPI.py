@@ -45,7 +45,6 @@ def on_message_from_input(client, userdata, message):
         message = json.dumps(values)
             
         client.publish("iclee/light", message)
-        print("pubbed1    " + str(len(values)))
               
     elif(message.lower() == "sound"):
         t_end = time.time() + 4
@@ -55,7 +54,6 @@ def on_message_from_input(client, userdata, message):
         message = json.dumps(values)
             
         client.publish("iclee/sound", message)
-        print("pubbed2    " + str(len(values)))
         
     else:
         GPIO.output(11, GPIO.HIGH)
@@ -64,7 +62,6 @@ def on_message_from_input(client, userdata, message):
         time.sleep(0.5)
         message = ""
         client.publish("iclee/wrong", message)
-        print("pubbed3")
     
 
     

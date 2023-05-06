@@ -58,16 +58,10 @@ def on_message_from_sound(client, userdata, message):
 
     xaxis = np.linspace(0, 4, len(data))
     
-    degree = 2
-    coefficients = [0] * (degree+1)
-    n = len(xaxis)
-    for i in range(degree+1):
-        for j in range(n):
-            coefficients[i] += data[j] * math.pow(xaxis[j], i)
-    for i in range(degree-1, -1, -1):
-        for j in range(degree, i, -1):
-            coefficients[i] -= coefficients[j] * math.pow(xaxis[0], j-i)
-        coefficients[i] /= math.pow(xaxis[0], i)
+    mymodel = numpy.poly1d(numpy.polyfit(xaxis, data, 3))
+
+    plt.plot(xaxis, mymodel(myline))
+
         
 # plot the data and regression line
 
@@ -76,7 +70,7 @@ def on_message_from_sound(client, userdata, message):
 
 # plot the data and regression line
     plt.scatter(xaxis, data)
-    plt.plot(xaxis, p(xaxis))
+
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")

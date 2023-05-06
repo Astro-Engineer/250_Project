@@ -58,7 +58,7 @@ def on_message_from_sound(client, userdata, message):
 
     xaxis = np.linspace(0, 4, len(data))
     
-    degree = 5
+    degree = 2
     coefficients = [0] * (degree+1)
     n = len(xaxis)
     for i in range(degree+1):
@@ -72,7 +72,7 @@ def on_message_from_sound(client, userdata, message):
 # plot the data and regression line
 
     plt.plot(xaxis, [sum([coefficients[i] * math.pow(j, i) for i in range(degree+1)]) for j in xaxis])
-    plt.show()
+    
 
 # plot the data and regression line
     plt.scatter(xaxis, data)
@@ -80,6 +80,7 @@ def on_message_from_sound(client, userdata, message):
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
+    plt.show()
     plt.savefig("Sample Two")
     print("TWO COMPLETE")
         

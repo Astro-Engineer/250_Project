@@ -60,7 +60,7 @@ def on_message_from_sound(client, userdata, message):
     
     mymodel = np.poly1d(np.polyfit(xaxis, data, 3))
 
-    plt.plot(xaxis, mymodel(myline))
+    plt.plot(xaxis, mymodel(xaxis))
 
         
 # plot the data and regression line

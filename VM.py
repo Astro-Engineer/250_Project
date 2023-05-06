@@ -56,7 +56,6 @@ def on_message_from_light(client, userdata, message):
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
-    plt.show()
     plt.savefig("Sample Two")
     print("TWO COMPLETE")
     
@@ -82,7 +81,6 @@ def on_message_from_sound(client, userdata, message):
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
-    plt.show()
     plt.savefig("Sample Two")
     print("TWO COMPLETE")
         

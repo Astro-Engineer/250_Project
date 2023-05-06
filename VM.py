@@ -3,7 +3,9 @@ import paho.mqtt.client as mqtt
 import time
 
 import matplotlib.pyplot as plt
+
 import numpy as np
+
 import json
 
 from datetime import datetime
@@ -37,7 +39,8 @@ def on_message_from_light(client, userdata, message):
         print(element)
     xaxis = np.linspace(0, 4, 80)
 
-    plt.plot(xaxis, data)
+    plt.scatter(xaxis, data)
+
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")
@@ -47,41 +50,17 @@ def on_message_from_light(client, userdata, message):
 def on_message_from_sound(client, userdata, message):
 
     data = json.loads(message.payload)
-    for element in data:
-        print(element)
-        
-    t = np.linspace(0, 4, len(data))
+    #for element in data:
+        #print(element)
 
-# Compute the FFT of the signal
-    fft_vals = np.fft.fft(data)
 
-# Compute the frequencies associated with the FFT values
-    freqs = np.fft.fftfreq(len(data), t[1]-t[0])
+    xaxis = np.linspace(0, 4, len(data))
 
-# Compute the power spectral density
-    psd = np.abs(fft_vals)**2
-    
-
-    plt.plot(t, data)
-    plt.ylabel('Amplitude')
-    plt.xlabel('Time (s)')
-
-    plt.savefig("wacky")
-    
-    plt.plot(freqs, fft_vals)
-    plt.ylim([-300, 300])
-    plt.ylabel('Poggy (woggys)')
-    plt.xlabel('Freq (HZ)')
-    plt.savefig("wacky2")
-    
-
-    #xaxis = np.linspace(0, 4, 80)
-
-    #plt.plot(xaxis, data)
-    #plt.xlabel("X-Label")
-    #plt.ylabel("Y-Label")
-    #plt.title("Title")
-    #plt.savefig("Sample Two")
+    plt.scatter(xaxis, data)
+    plt.xlabel("X-Label")
+    plt.ylabel("Y-Label")
+    plt.title("Title")
+    plt.savefig("Sample Two")
     print("TWO COMPLETE")
         
 def on_message_from_wrong(client, userdata, message):
@@ -105,7 +84,6 @@ if __name__ == '__main__':
     while True:
         message = input("Enter what you would like measured? ")
         
-
         client.publish("iclee/input", message)
 
         print("Publishing string: " + message)

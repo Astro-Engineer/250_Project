@@ -60,7 +60,7 @@ def on_message_from_sound(client, userdata, message):
     
     mymodel = np.poly1d(np.polyfit(xaxis, data, 20))
 
-    plt.plot(xaxis, mymodel(xaxis))
+    plt.plot(xaxis, mymodel(xaxis), color='red')
 
         
     

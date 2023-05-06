@@ -59,8 +59,20 @@ def on_message_from_sound(client, userdata, message):
     xaxis = np.linspace(0, 4, len(data))
     
     degree = 5
-    coefficients = np.polyfit(data, xaxis, degree)
-    p = np.poly1d(coefficients)
+    coefficients = [0] * (degree+1)
+    n = len(xaxis)
+    for i in range(degree+1):
+        for j in range(n):
+            coefficients[i] += data[j] * math.pow(x[j], i)
+    for i in range(degree-1, -1, -1):
+        for j in range(degree, i, -1):
+            coefficients[i] -= coefficients[j] * math.pow(x[0], j-i)
+        coefficients[i] /= math.pow(x[0], i)
+        
+# plot the data and regression line
+
+    plt.plot(xaxis, [sum([coefficients[i] * math.pow(j, i) for i in range(degree+1)]) for j in xaxis])
+    plt.show()
 
 # plot the data and regression line
     plt.scatter(xaxis, data)

@@ -50,13 +50,13 @@ def on_message_from_light(client, userdata, message):
 def on_message_from_sound(client, userdata, message):
 
     data = json.loads(message.payload)
-    #for element in data:
-        #print(element)
+    for element in data:
+        print(element)
 
 
     xaxis = np.linspace(0, 4, len(data))
 
-    plt.scatter(xaxis, data)
+    plt.plot(xaxis, data)
     plt.xlabel("X-Label")
     plt.ylabel("Y-Label")
     plt.title("Title")

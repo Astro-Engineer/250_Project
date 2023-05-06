@@ -34,7 +34,6 @@ def on_message(client, userdata, msg):
 def on_message_from_input(client, userdata, message):
     
     message = message.payload.decode()
-    print("Message: "+message)
     values = []
     if(message.lower() == "light"):
       
